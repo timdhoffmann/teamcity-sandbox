@@ -1,2 +1,3 @@
 data_dir/*
 teamcity-server-logs/*
+!*/*.md
