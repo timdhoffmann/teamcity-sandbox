@@ -27,6 +27,8 @@ services:
     volumes:
       - data_dir:/data/teamcity_server/datadir
       - teamcity-server-logs:/opt/teamcity/logs
+    # Required when running docker as non-sudo user (see https://docs.docker.com/engine/install/linux-postinstall/).
+    user: "1000:1000"
     # depends_on:
       # - db
 
@@ -44,3 +46,7 @@ services:
   #     - ./agents/agent-2/conf:/data/teamcity_agent/conf
   #   environment:
   #     - DOCKER_IN_DOCKER=start
+
+volumes:
+  data_dir:
+  teamcity-server-logs:
